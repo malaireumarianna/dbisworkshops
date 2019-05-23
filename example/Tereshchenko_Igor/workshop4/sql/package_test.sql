@@ -1,0 +1,58 @@
+
+
+
+DECLARE
+  user_id NUMBER;
+BEGIN
+
+  user_id := USER_AUTH.GET_USER_ID(
+    'PETRO@GMAIL.COM',
+    '222'
+  );
+  
+  DBMS_OUTPUT.PUT_LINE( user_id);
+END;
+
+
+DECLARE
+  USER_ID NUMBER;
+  STATUS VARCHAR2(200);
+  USER_STUDYBOOK VARCHAR2(6);
+  USER_YEAR DATE;
+  USER_NAME VARCHAR2(20);
+  USER_EMAIL VARCHAR2(40);
+  USER_BIRTHDAY DATE;
+  USER_PASSWORD VARCHAR2(10);
+BEGIN
+  USER_STUDYBOOK := 'KM2222';
+  USER_YEAR := '10-OCT-17';
+  USER_NAME := 'Boba';
+  USER_EMAIL := 'BOBA@GMAIL.COM';
+  USER_BIRTHDAY := '21-OCT-97';
+  USER_PASSWORD := '333';
+
+  USER_AUTH.NEW_USER(
+    USER_ID => USER_ID,
+    STATUS => STATUS,
+    USER_STUDYBOOK => USER_STUDYBOOK,
+    USER_YEAR => USER_YEAR,
+    USER_NAME => USER_NAME,
+    USER_EMAIL => USER_EMAIL,
+    USER_BIRTHDAY => USER_BIRTHDAY,
+    USER_PASSWORD => USER_PASSWORD
+  );
+
+DBMS_OUTPUT.PUT_LINE('USER_ID = ' || USER_ID);
+
+DBMS_OUTPUT.PUT_LINE('STATUS = ' || STATUS);
+
+END;
+
+
+
+select * from table(user_skillS.GetSkillData());
+select * from table(user_skillS.GetSkillData('Java'));
+select * from table(user_skillS.GetSkillData('Javas'));
+
+
+

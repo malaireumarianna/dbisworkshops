@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>User form</h1>
+
+{#class UserForm(Form)#}
+{#   name#}
+{#   password#}
+{#   email#}
+{#   birthday#}
+{#   studybook#}
+{#   study_year#}
+{#   submit#}
+
+     <form action = "/" method = post>
+         <fieldset>
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label }} {{ form.name }} <br/>
+            {{ form.password.label }} {{ form.password }} <br/>
+            {{ form.email.label }} {{ form.email }} <br/>
+            {{ form.birthday.label }} {{ form.birthday }} <br/>
+            {{ form.studybook.label }} {{ form.studybook }} <br/>
+            {{ form.study_year.label }} {{ form.study_year }} <br/>
+
+            {{ form.submit }}
+
+
+            </div>
+
+         </fieldset>
+      </form>
+
+</body>
+</html>

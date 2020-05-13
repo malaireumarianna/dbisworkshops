@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information</title>
+</head>
+<body>
+<form action = "/api" method = "POST" id="form_info">
+    <p>login <input type = "text" name = "COMPANY" value="{{info.get('COMPANYNAME')}}"/></p>
+    <p>name <input type = "text" name = "JOB" value="{{info.get('JOBNAME')}}" /></p>
+    <p>link <input type = "text" name = "LINK" value="{{info.get('LINKTOJOB')}}" /></p>
+</form>
+
+    <button type="submit" form="form_info" name="action" value="info_update">Submit</button>
+</body>
+</html>

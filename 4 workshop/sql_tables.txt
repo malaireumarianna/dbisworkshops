@@ -1,0 +1,37 @@
+CREATE TABLE vacancy_categories(
+    id NUMBER(2) NOT NULL,
+    category_name VARCHAR2(50) NOT NULL,
+    CONSTRAINT pk_id_category PRIMARY KEY (id)
+);
+
+CREATE TABLE vacancy(
+    id NUMBER(2) NOT NULL,
+    vacancy_name VARCHAR2(50) NOT NULL,
+    id_category NUMBER(3) NOT NULL,
+    text_description VARCHAR2(3000) NOT NULL,
+    about_company VARCHAR2(100) NOT NULL,
+    skills VARCHAR2(800) NOT NULL,
+    CONSTRAINT pk_id_vacancy PRIMARY KEY (id),
+    CONSTRAINT fk_id_category FOREIGN KEY(id_category) REFERENCES vacancy_categories(id)   
+);
+
+CREATE TABLE users_users(
+    id NUMBER(2) NOT NULL,
+    user_username VARCHAR2(50) NOT NULL,
+    CONSTRAINT pk_id_user PRIMARY KEY (id),
+    CONSTRAINT username_unique UNIQUE (user_username)
+);
+
+CREATE TABLE opinion_of_workers(
+    id NUMBER(2) NOT NULL,
+    grade_value NUMBER(2),
+    user_id NUMBER(2) NOT NULL,
+    vacancy_id NUMBER(2) NOT NULL,
+    text_reviw VARCHAR2(200) NOT NULL,
+    CONSTRAINT pk_id_grade PRIMARY KEY (id),
+    CONSTRAINT fk_id_user FOREIGN KEY(user_id) REFERENCES users_users(id),
+    CONSTRAINT fk_id_vacancy FOREIGN KEY(vacancy_id) REFERENCES vacancy(id),
+    CONSTRAINT check_grade_value CHECK(grade_value<=5)
+);
+
+
